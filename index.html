@@ -5,8 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5969beb443.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="wrapper">
+        <div class="startGame displayOff">
+            <h1>Rock Paper Scissor <span>WAR</span></h1>
+            <p>We are at WAR against AI forces. <br>
+                <span>The only way to save Humanity is by beating this AI in Rock Paper 
+            Scissor Game.</span> <br>
+        <span>Are you ready to save Humanity?</span> </p>
+        <button id="startButton">Start Game</button>
+        </div>
+        <div class="gameOn displayOff">
+            <h1>Rock Paper Scissor <span>WarZone</span></h1>
+            <div class="humanvsAI">
+                <h2>Human Force</h2>
+                <h2>Vs</h2>
+                <h2>AI Force</h2>
+            </div>
+
+            <div id="playArea">
+                <h2>Select Your Weapons</h2>
+                <div class="armArea">
+                    <div class="HumanArms">
+                        <ul>
+                            <li><span id="rock"><i class="fas fa-hand-rock fa-6x"></i></span></li>
+                            <li><span id="paper"><i class="fas fa-hand-paper fa-6x"></i></span></li>
+                            <li><span id="scissor"><i class="fas fa-hand-scissors fa-6x"></i></span></li>
+                        </ul>
+                    </div>
+
+                    <div class="AIArms">
+                        <ul>
+                            <li><i class="fas fa-hand-rock fa-6x"></i></li>
+                            <li><i class="fas fa-hand-paper fa-6x"></i></li>
+                            <li><i class="fas fa-hand-scissors fa-6x"></i></li>
+                        </ul>
+                    </div>  
+                </div>   
+
+                <div class="currentResult"></div>
+                
+            </div>
+        </div>
+        <div class="gameResult displayOff">
+            <h1>War is Over</h1>
+            <div class="resultArea">
+                <div class="resultIs"></div>
+            </div>
+            <div>
+                <button><a href="index.html">Play Again</a></button>
+            </div>
+            
+            <!--final result to be displayed here-->
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

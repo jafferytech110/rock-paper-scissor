@@ -1,70 +1,98 @@
-let whoWins = [];
-let r1 = 'ROCK';
-let p1 = 'PAPER';
-let s1 = 'SCISSOR';
-//computer selection function
-let compSelection = () => {
+// //Game Start Window
+// //assigning variable for display changes and button
+const startGame = document.querySelector(".startGame");
+const startButton = document.getElementById("startButton");
+const gameOn = document.querySelector(".gameOn");
+const gameResult = document.querySelector(".gameResult");
+//switching displays on button click
+startButton.addEventListener('click',() => {
+    startGame.style.display ="none";
+    gameOn.style.display ="flex";
+    
+});
+
+//winner declaration
+function winnerDeclare(){
+    //switching displays
+    gameOn.style.display = "none";
+    gameResult.style.display = "flex";
+    //printing result
+    if(playerObject.userWin > 2){
+        const resultIs = document.querySelector(".resultIs");
+        let heading1 = document.createElement("h2");
+        heading1.textContent = "You have finally saved the humanity. Rest in peace now!";
+        resultIs.appendChild(heading1);
+    }
+    else{
+        const resultIs = document.querySelector(".resultIs");
+        let heading1 = document.createElement("h2");
+        heading1.textContent = "You have failed humanity! RIP!!!";
+        resultIs.appendChild(heading1);
+    }
+    playerObject.userWin = 0;
+    playerObject.computerWin = 0;
+};
+//function for computer selection
+function computerWeapon(){
     let choices = ['ROCK','PAPER','SCISSOR'];
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-//function to check who wins
-function winCheck(computerSelection, userSelection){
-     //  Rock(1)   Paper(2)    Scissor(3)    
+//creating user object
+let playerObject = {
+    userWin: 0,
+    computerWin: 0,
     
 
-    //Draw situation    
-    if (computerSelection === userSelection){
-        return `It is a draw: you chose ${userSelection} and computer chose ${computerSelection}`;
-    }
-    //User wins situation
-    else if ((computerSelection === r1 && userSelection === p1) || (computerSelection === p1 && userSelection === s1) || (computerSelection === s1 && userSelection === r1)){
-        return  `you won: you chose ${userSelection} and computer chose ${computerSelection}`;
-    }
-    //computer wins situation    
-    else{
-        return `Computer won: you chose ${userSelection} and computer chose ${computerSelection}`;
-    }
-};
+    //checking rock paper or scissor
+    strike: function(weapon){
+        let r1 = 'ROCK';
+        let p1 = 'PAPER';
+        let s1 = 'SCISSOR';
 
-//main function 
-function game(){
-
-    //computer Selection variable declaration and calling function to assign a random value 
-    let computerSelection = compSelection();
-
-    //asking user to input his/her choice and converting it into upper case 
-    let userSelection = prompt("Please choose Rock paper scissor with correct spelling: ");
-    userSelection = userSelection.toUpperCase();
-    let valid = false;
-
-    while(!valid){
-        if(userSelection !== r1 && userSelection !== p1 && userSelection !== s1){
-            userSelection = prompt("Please check your spelling again: ");
-            userSelection = userSelection.toUpperCase();
+        if (weapon == computerWeapon()){
+            let paragraph = document.createElement("p");
+            paragraph.textContent = `It is a draw: you chose ${weapon} and computer chose ${computerWeapon()}`;
+            document.querySelector(".currentResult").appendChild(paragraph);
+                    
         }
+        //User wins situation
+        else if ((computerWeapon() === r1 && weapon === p1) || (computerWeapon === p1 && weapon === s1) || (computerWeapon() === s1 && weapon === r1)){
+            let paragraph = document.createElement("p");
+            paragraph.textContent = `you won: you chose ${weapon} and computer chose ${computerWeapon()}`;
+            document.querySelector(".currentResult").appendChild(paragraph);
+            this.userWin += 1; 
+        }
+        //computer wins situation    
         else{
-            valid = true;
+            let paragraph = document.createElement("p");
+            paragraph.textContent =  `Computer won: you chose ${weapon} and computer chose ${computerWeapon()}`;
+            document.querySelector(".currentResult").appendChild(paragraph);
+            this.computerWin += 1;
+        }
+        if(this.userWin > 2 || this.computerWin >2){
+            winnerDeclare();
         }
     }
-    // do{
-    //      userSelection = prompt("Please choose Rock paper scissor with correct spelling: ");
-    //      userSelection = userSelection.toUpperCase();    
-    // }while(userSelection != r1 || userSelection != p1 || userSelection != s1)
-   
 
-    
-    return  winCheck(computerSelection, userSelection);
 };
 
-//playing 5 times
-for(let i =  0; i < 5; i++) {
-    whoWins.push(game());
-}
 
-for (let i = 0; i < 5; i++){
 
-    console.log(whoWins[i]);
+//taking user input 
+let rock = document.getElementById("rock");
+let paper = document.getElementById("paper");
+let scissor = document.getElementById("scissor");
 
-}
-
+rock.addEventListener('click', 
+    function(){
+        playerObject.strike('ROCK');
+    }); 
+paper.addEventListener('click', 
+    function(){
+        playerObject.strike('ROCK');
+    });
+scissor.addEventListener('click', 
+    function(){
+        playerObject.strike('ROCK');
+    });

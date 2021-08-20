@@ -1,0 +1,249 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+}
+
+html body{
+    background: url("img/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* start of first div displayed */
+#wrapper .startGame{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#wrapper .startGame h1{
+    color: #fbcc23;
+    border-bottom: 2px solid #fff;
+    margin: 20px auto;
+    font-size: 3em;
+}
+
+#wrapper .startGame h1 span{
+    color: #880808;
+}
+
+#wrapper .startGame p{
+    color: #fff;
+    line-height: 2em;
+    font-size: 1.4em;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #880808;
+}
+
+
+#wrapper .startGame button {
+    padding: 8px 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color:#fff;
+    background-color: #880808;
+    border:none;
+    transition: 1s;
+
+}
+
+#wrapper .startGame button:hover{
+    text-shadow: 0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #fff;
+    padding: 10px 7px;
+}
+
+/* end of first div displayed */
+
+
+/* start of Main Game Area */
+
+#wrapper .gameOn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* temorary disabling */
+    display: none;
+}
+
+#wrapper .gameOn h1{
+    color: #fbcc23;
+    border-bottom: 2px solid #fff;
+    margin: 20px auto;
+    font-size: 3em;   
+}
+
+
+#wrapper .gameOn h1 span{
+    color: #880808;
+}
+
+#wrapper .gameOn .humanvsAI{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    width: 100vw;
+}
+
+#wrapper .gameOn .humanvsAI h2:nth-child(1){
+    color: #fbcc23;
+    margin: 20px auto;
+    font-size: 2.3em;  
+}
+
+
+#wrapper .gameOn .humanvsAI h2:nth-child(2){
+    color: #fff;
+    margin: 20px auto;
+    font-size: 2.3em;  
+}
+
+
+#wrapper .gameOn .humanvsAI h2:nth-child(3){
+    color: #880808;
+    margin: 20px auto;
+    font-size: 2.3em;  
+}
+
+#wrapper .gameOn #playArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100vw;
+}
+
+#wrapper .gameOn #playArea h2{
+    color: #fff;
+    margin: 20px auto;
+    font-size: 2.1em;
+    border-bottom: 2px solid #880808;
+    padding-bottom: 5px;
+}
+
+#wrapper .gameOn #playArea .armArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    gap: 20px;
+}
+
+#wrapper .gameOn #playArea .armArea .HumanArms ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap:50px;
+    margin-left: 10px;
+}
+
+#wrapper .gameOn #playArea .armArea .HumanArms ul li{
+    display: inline-block;
+}
+
+#wrapper .gameOn #playArea .armArea .AIArms ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap:50px;
+    margin-right: 10px;
+}
+
+#wrapper .gameOn #playArea .armArea .AIArms ul li{
+    display: inline-block;
+}
+
+#wrapper .gameOn #playArea .armArea .AIArms ul li:nth-child(1), #wrapper .gameOn #playArea .armArea .HumanArms ul li:nth-child(1){
+    color:#fbcc23;
+}
+#wrapper .gameOn #playArea .armArea .AIArms ul li:nth-child(2), #wrapper .gameOn #playArea .armArea .HumanArms ul li:nth-child(2){
+    color: #fff;
+}
+#wrapper .gameOn #playArea .armArea .AIArms ul li:nth-child(3), #wrapper .gameOn #playArea .armArea .HumanArms ul li:nth-child(3){
+    color: #880808;
+}
+
+#wrapper .gameOn #playArea .armArea .AIArms, #wrapper .gameOn #playArea .armArea .HumanArms{
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 10px;
+}
+
+#wrapper .gameOn #playArea .armArea .HumanArms ul li{
+    transition: linear .3s;
+}
+
+#wrapper .gameOn #playArea .armArea .HumanArms ul li:hover{
+    transform: scale(1.2,1.2);
+}
+
+.currentResult{
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+/* War is Over start here */
+#wrapper .gameResult{
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    /* diabling */
+    display: none;
+
+}
+
+#wrapper .gameResult *{
+    color: #fff;
+    font-weight: bold;
+}
+
+#wrapper .gameResult h1{
+    color: #fbcc23;
+    border-bottom: 2px solid #880808;
+    margin: 20px auto;
+    font-size: 3em;    
+}
+
+#wrapper .gameResult button{
+    padding: 8px 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color:#fff;
+    background-color: #880808;
+    border:none;
+    transition: 1s;
+}
+
+#wrapper .gameResult button:hover{
+    text-shadow: 0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #fff;
+    padding: 10px 7px;
+}
+
+#wrapper .gameResult button a{
+    text-decoration: none;
+}
+
+.displayOff{
+    display: none;
+}
