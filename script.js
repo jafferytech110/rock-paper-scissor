@@ -49,24 +49,26 @@ let playerObject = {
         let r1 = 'ROCK';
         let p1 = 'PAPER';
         let s1 = 'SCISSOR';
+        let userWeapon = weapon;
+        let compWeapon = computerWeapon();
 
-        if (weapon == computerWeapon()){
+        if (compWeapon == userWeapon){
             let paragraph = document.createElement("p");
-            paragraph.textContent = `It is a draw: you chose ${weapon} and computer chose ${computerWeapon()}`;
+            paragraph.textContent = `It is a draw: you chose ${userWeapon} and computer chose ${compWeapon}`;
             document.querySelector(".currentResult").appendChild(paragraph);
                     
         }
         //User wins situation
-        else if ((computerWeapon() === r1 && weapon === p1) || (computerWeapon === p1 && weapon === s1) || (computerWeapon() === s1 && weapon === r1)){
+        else if ((compWeapon == r1 && userWeapon == p1) || (compWeapon == p1 && userWeapon == s1) || (compWeapon == s1 && userWeapon == r1)){
             let paragraph = document.createElement("p");
-            paragraph.textContent = `you won: you chose ${weapon} and computer chose ${computerWeapon()}`;
+            paragraph.textContent = `you won: you chose ${userWeapon} and computer chose ${compWeapon}`;
             document.querySelector(".currentResult").appendChild(paragraph);
             this.userWin += 1; 
         }
         //computer wins situation    
         else{
             let paragraph = document.createElement("p");
-            paragraph.textContent =  `Computer won: you chose ${weapon} and computer chose ${computerWeapon()}`;
+            paragraph.textContent =  `Computer won: you chose ${userWeapon} and computer chose ${compWeapon}`;
             document.querySelector(".currentResult").appendChild(paragraph);
             this.computerWin += 1;
         }
@@ -90,9 +92,9 @@ rock.addEventListener('click',
     }); 
 paper.addEventListener('click', 
     function(){
-        playerObject.strike('ROCK');
+        playerObject.strike('PAPER');
     });
 scissor.addEventListener('click', 
     function(){
-        playerObject.strike('ROCK');
+        playerObject.strike('SCISSOR');
     });
